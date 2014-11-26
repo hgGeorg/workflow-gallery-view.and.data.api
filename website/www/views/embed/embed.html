@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Viewer Gallery Embed</title>
+
+    <link rel="shortcut icon" href="public/images/Adsk.ico" type="image/x-icon" />
+
+    <!--///////////////////////////////////////////////////////////////////////
+    // JQuery
+    //
+    ////////////////////////////////////////////////////////////////////////-->
+    <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
+    <script type="text/javascript" src="components/jquery/js/jquery.js"></script>
+
+    <!--///////////////////////////////////////////////////////////////////////
+    // Viewer
+    //
+    ////////////////////////////////////////////////////////////////////////-->
+    <link type="text/css" rel="stylesheet" href="https://viewing.api.autodesk.com/viewingservice/v1/viewers/style.css"/>
+    <script  type="text/javascript" src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/Developer-Autodesk/library-javascript-view.and.data.api/master/js/Autodesk.ADN.Toolkit.Viewer.js"></script>
+
+    <script>
+
+        function addToolbar(parent, id) {
+
+            var div = document.createElement("div");
+
+            parent.appendChild(div);
+
+            div.style.top = '18%';
+            div.style.left = "1%";
+            div.style.zIndex = "2";
+            div.style.position = "absolute";
+
+            var toolbar = new Autodesk.Viewing.UI.ToolBar(div);
+
+            var subToolbar = toolbar.addSubToolbar('sub1', false);
+
+            var button = Autodesk.Viewing.UI.ToolBar.createMenuButton(
+                    "bGallery",
+                    "View in Gallery",
+                    function (e) {
+                        window.open('http://' +
+                            window.location.host +
+                            '/node/gallery/#/viewer?id=' + id,
+                            '_blank');
+                    });
+
+            toolbar.addToSubToolbar("sub1", button);
+
+            subToolbar.setToolImage(button.id, 'public/images/adsk.24x24.png');
+        }
+
+        function loadFromId(id) {
+
+            var url =  'http://' + window.location.host + '/node/gallery/api/model/' + id;
+
+            $.getJSON(url, function(response){
+
+                var adnViewerMng = new Autodesk.ADN.Toolkit.Viewer.AdnViewerManager(
+                    'http://' + window.location.host + '/node/gallery/api/token',
+                    document.getElementById('ViewerDiv'));
+
+                adnViewerMng.loadDocument(
+                        response.model.urn,
+                    function (viewer) {
+
+                        var parent = document.getElementById(
+                            viewer.clientContainer.id);
+
+                        addToolbar(parent, id);
+                    });
+            });
+        }
+
+        $(document).ready(function () {
+
+            var id = Autodesk.Viewing.Private.getParameterByName("id");
+
+            if (id !== '') {
+                loadFromId(id);
+            };
+        });
+
+    </script>
+
+</head>
+
+<body style="margin:0">
+    <div id="ViewerDiv" class="viewer"></div>
+</body>
+
+</html>

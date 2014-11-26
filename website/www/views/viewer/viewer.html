@@ -1,0 +1,66 @@
+
+<!--///////////////////////////////////////////////////////////////////////
+// JsTree
+//
+////////////////////////////////////////////////////////////////////////-->
+<link type="text/css" rel="Stylesheet" href="components/jsTree/themes/default/style.min.css"/>
+<script type="text/javascript" src="components/jsTree/js/jstree.min.js"></script>
+
+<!--///////////////////////////////////////////////////////////////////////
+// SlickGrid
+//
+////////////////////////////////////////////////////////////////////////-->
+<link rel="stylesheet" href="components/slickgrid/slick.grid.css" type="text/css"/>
+<link rel="stylesheet" href="components/slickgrid/slick.grid.custom.css" type="text/css"/>
+<script src="components/slickgrid/lib/jquery.event.drag-2.2.js"></script>
+<script src="components/slickgrid/slick.core.js"></script>
+<script src="components/slickgrid/slick.grid.js"></script>
+
+<!--///////////////////////////////////////////////////////////////////////
+// Spectrum
+//
+////////////////////////////////////////////////////////////////////////-->
+<link type="text/css" rel="stylesheet" href="components/spectrum/spectrum.css"/>
+<script src="components/spectrum/spectrum.js"></script>
+
+<style>
+
+    #bEmbedButton {
+        background-position: 3px 0px;
+    }
+
+</style>
+
+<!--///////////////////////////////////////////////////////////////////////
+// Layout
+//
+////////////////////////////////////////////////////////////////////////-->
+
+<div class="ui-layout-center" id="mainLayoutId" style="height:600px; width:100%;">
+
+    <div class="ui-layout-center">
+        <div id="ViewerDiv" class="ui-layout-element">
+        </div>
+    </div>
+
+    <div id="westLayoutId" class="ui-layout-west">
+
+        <div class="ui-layout-center">
+            <div id="jstree" class="ui-layout-element" style="height:100%; width:100%;">
+            </div>
+        </div>
+
+        <div id="gridLayoutDiv" class="ui-layout-south">
+            <div id="GridDiv" style="width:100%;height:100%;">
+            </div>
+        </div>
+
+    </div>
+
+    <div id="eastLayoutId" class="ui-layout-east">
+
+
+    </div>
+
+</div>
+

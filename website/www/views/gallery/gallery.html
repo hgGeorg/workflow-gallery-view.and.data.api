@@ -1,0 +1,162 @@
+
+<style>
+
+    #row1{
+        display:flex;
+        flex-direction:row;
+        height: 100%;
+    }
+
+    #column1{
+        display:flex;
+        flex-direction:column;
+        width:20%;
+        overflow: hidden;
+        background-color: #0B487A;
+    }
+
+    #column2{
+        display:flex;
+        flex-direction:column;
+        width:80%;
+    }
+
+    .list-group-item{
+        background-color: #0B487A;
+        color:#C3DBFA;
+        padding:25px;
+    }
+
+    #navbarMenuId{
+        position:fixed;
+        width:20%
+    }
+
+    #navbarGalleryId{
+        position:fixed;
+        width:100%
+    }
+
+</style>
+
+<div style="padding-top: 100px; height:100%">
+
+    <div id="row1">
+
+        <div id="column1">
+
+            <nav id="navbarMenuId" class="navbar navbar-default" role="navigation" style="z-index:998; top:50px">
+
+                <a ng-if="!collapsedMode()" class="list-group-item" href="#/showcase" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    &nbsp; Showcase
+                </a>
+
+                <a ng-if="collapsedMode()" class="list-group-item" href="#/showcase" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+
+                <a ng-if="!collapsedMode()" ng-click="onLoadUrn()" class="list-group-item" href="" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-barcode"></span>
+                    &nbsp; Load from urn
+                </a>
+
+                <a ng-if="collapsedMode()" ng-click="onLoadUrn()" class="list-group-item" href="" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-barcode"></span>
+                </a>
+
+                <a ng-if="!collapsedMode()" ng-click="onUpload()" class="list-group-item" href="" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-upload"></span>
+                    &nbsp; Upload
+                </a>
+
+                <a ng-if="collapsedMode()" ng-click="onUpload()" class="list-group-item" href="" style="color:#C3DBFA">
+                    <span class="glyphicon glyphicon-upload"></span>
+                </a>
+
+            </nav>
+        </div>
+
+
+        <div id="column2">
+
+            <nav id="navbarGalleryId" class="navbar navbar-default" role="navigation" style="z-index:998; top:50px">
+
+                <div class="container-fluid">
+
+                    <div class="collapse navbar-collapse">
+
+                        <ul class="nav navbar-nav navbar-left">
+
+                            <div id="menuSearchGalleryId" class="navbar-form navbar-right" role="search">
+
+                                <div class="input-group">
+
+                                    <input type="text"
+                                           id="searchInput"
+                                           ng-model="galleryFilterValue"
+                                           class="form-control"
+                                           placeholder="Search Gallery ..."/>
+
+                                    <div class="input-group-btn">
+
+                                        <button
+                                                id="btnFilterId"
+                                                type="button"
+                                                class="btn btn-default dropdown-toggle"
+                                                data-toggle="dropdown">
+                                            Filter by
+                                            &nbsp; <span class="caret"></span>
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <li><a id="filterAuthorId">Author</a></li>
+                                            <li><a id="filterModelId">Model name</a></li>
+                                            <li><a id="filterUrnId">Model urn</a></li>
+                                            <li class="divider"></li>
+                                            <li><a id="filterDisableId">Disable filter</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div ng-repeat="model in models | filter: searchFilter | orderBy:'name'"
+                 style="overflow-y: auto; overflow-x: hidden;">
+
+                <div class="row" style="{{['background-color:#C3DBFA', 'background-color:#EDF5FF'][$index %2]}}">
+
+                    <div class="col-md-3" style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px;">
+                        <a>
+                            <img class="img-responsive" ng-src={{model.src}} alt="">
+                        </a>
+                    </div>
+
+                    <div class="col-md-3" style="padding-left: 40px; padding-bottom: 20px;">
+
+                        <h3>{{model.name}}</h3>
+
+                        <div ng-if="model.author.name">
+                            <h5><b>Author: </b>{{model.author.name}}</h5>
+                        </div>
+
+                        <h5><b>Type: </b>{{model.type}}</h5>
+
+                        <h5><b>Progress: </b>{{model.progress}}</h5>
+
+                        <a class="btn btn-primary" href="#/viewer?id={{model._id}}">
+                              Show in Viewer
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

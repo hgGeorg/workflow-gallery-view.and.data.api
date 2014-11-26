@@ -1,0 +1,33 @@
+**/node_modules
+npm-debug.log
+**/components/viewer
+website/uploads/extensions/**
+
+# Compiled source #
+###################
+*.suo
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.AcadGalleryUploader/obj/**
+add-ins/Autodesk.ADN.Toolkit/Autodesk.ADN.Toolkit.Gallery/obj/**
+add-ins/Autodesk.ADN.Toolkit/Autodesk.ADN.Toolkit.ViewData/obj/**
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.RvtGalleryUploader/bin/**
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.RvtGalleryUploader/obj/**
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.AcadGalleryUploader/bin/**
+add-ins/Autodesk.ADN.Toolkit/Autodesk.ADN.Toolkit.Gallery/bin/**
+add-ins/Autodesk.ADN.Toolkit/Autodesk.ADN.Toolkit.ViewData/bin/**
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.InvGalleryUploader/obj/**
+add-ins/Autodesk.ADN.AddIns/Autodesk.ADN.RvtGalleryUploader/RvtGalleryUploader.bundle.zip
+add-ins/packages/**
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# configuration files
+
+add-ins/Autodesk.ADN.Toolkit/Autodesk.ADN.Toolkit.ViewData/App.config
