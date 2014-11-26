@@ -1,4 +1,4 @@
-AdnGallery Add-Ins
+View & Data Gallery Add-Ins
 ==================
 
-Automatic ADN gallery upload commands for AutoCAD and Revit, and some toolkit helper libraries.
+Automatic View & Data Gallery upload commands for AutoCAD, Inventor and Revit, and some toolkit helper libraries.

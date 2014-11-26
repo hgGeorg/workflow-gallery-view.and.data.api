@@ -1,7 +1,7 @@
-AdnGallery
+View & Data Gallery
 ==========
 
-The ADN gallery website of Autodesk View and Data API models, implemented using angular and node.js.
+The View & Data Gallery is a demo website implemented using a Node.js back-end and an AngularJs front-end.
 
 Local Installation
 ------------------
@@ -10,5 +10,5 @@ Install node.js and mongodb if you want to test locally.
 
 Run 'npm install' to resolve node dependencies.
 
-Then 'run server.bat' if you are on Windows, updating path if needed.
+run 'mongodb.bat', then 'run server.bat' if you are on Windows, updating path if needed.
 
